@@ -1,17 +1,16 @@
-import fake_useragent
 import requests
 from fake_useragent import UserAgent
 from bs4 import BeautifulSoup
 
 user = UserAgent().random
-header = {'user-agent':user}
+header = {'user-agent': user}
 
 
 link = 'https://browser-info.ru/'
 responce = requests.get(link, headers=header).text
 
 soup = BeautifulSoup(responce, 'lxml')
-block = soup.find('div', id = 'tool_padding')
+block = soup.find('div', id='tool_padding')
 
 check_js = block.find('div', id = 'javascript_check')
 result_js = check_js.find_all('span')[1].text
