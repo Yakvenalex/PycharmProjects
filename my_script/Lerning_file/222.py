@@ -1,3 +1,3 @@
 import Selenium
 
-print('Hello banditos!')
+print('Hello bandito!')
