@@ -11,7 +11,7 @@ def get_html(url):
         print(r.status_code)
 
 def write_csv(data):
-    with open('y.csv', 'a', newline='', encoding="utf-8") as f:
+    with open('3y.csv', 'a', newline='', encoding="utf-8") as f:
         order = ['name', 'age', 'like', 'link']
         writer = csv.DictWriter(f, fieldnames=order)
         writer.writerow(data)
