@@ -1,6 +1,5 @@
 from get_link_list import link_list
 from pyrogram import Client
-from config import *
 import requests
 import os
 
@@ -42,7 +41,7 @@ def get_media_for_link_list(link_list):
     os.chdir('..')
 
 if __name__ == '__main__':
-    app = Client('account', api_id, api_hash)
+    app = Client('account')
     get_media(app)
     get_media_for_link_list(link_list)
     good_by()
