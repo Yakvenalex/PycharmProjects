@@ -1,34 +1,45 @@
-from pyrogram import Client
+from pyrogram import Client, enums
 from config import *
-import csv
+import time
+import asyncio
 
+async def get_user_info(client):
+    async with client:
+        for i in range(2):
+            await client.send_chat_action('1242606918', enums.ChatAction.TYPING)
+            await asyncio.sleep(2)
+        time.sleep(1)
+        await client.send_message('1242606918', 'Здравсвуйте!')
+        time.sleep(2)
+        for i in range(3):
+            await client.send_chat_action('1242606918', enums.ChatAction.TYPING)
+            await asyncio.sleep(4)
+        time.sleep(2)
+        await client.send_message('1242606918', 'Меня зовут Юлия. Я парфюмерный менеджер компании U Project Studio. Сообщаю активным пользователям интернет о существовании нашего бренда😊')
+        time.sleep(5)
+        for i in range(3):
+            await client.send_chat_action('1242606918', enums.ChatAction.TYPING)
+            await asyncio.sleep(3)
+        time.sleep(2)
+        await client.send_message('1242606918', 'Если интересна информация о нашей продукции, то задайте мне вопрос или посетите наш телеграмм канал @uprojectstudio')
+        time.sleep(6)
+        for i in range(3):
+            await client.send_chat_action('1242606918', enums.ChatAction.TYPING)
+            await asyncio.sleep(3)
+        time.sleep(2)
+        await client.send_message('1242606918', 'Также, информацию о нас вы найдете:\n⠀\n<b>Мы в ВК</b>: https://vk.com/u_project_studio\n⠀\n<b>Мы в Instagram</b>: https://www.instagram.com/uprojectstudio/')
+        for i in range(2):
+            await client.send_chat_action('1242606918', enums.ChatAction.TYPING)
+            await asyncio.sleep(3)
+        time.sleep(2)
+        await client.send_message('1242606918', 'Приношу извинения если побеспокоила 🙏 Всего дорого😘')
+        # for member in client.get_chat_members('uryupinsk'):
+        #     id = member.user.id
+        #     print(id)
 
-def write_csv(data):
-    with open('belittled_users.csv', 'a', newline='', encoding="utf-8") as f:
-        order = ['id', 'login', 'first_name', 'last_name', 'is_bot']
-        writer = csv.DictWriter(f, fieldnames=order)
-        writer.writerow(data)
-
-
-def get_user_info(client):
-    with client:
-        for member in client.get_chat_members(-1001415526465):
-            user = member.user
-            id = user.id
-            username = user.username
-            first_name = user.first_name
-            last_name = user.last_name
-            is_bot = user.is_bot
-            if is_bot:
-                is_bot = 'бот'
-            else:
-                is_bot = 'не бот'
-            data = {'id': id, 'login': username, 'first_name': first_name, 'last_name': last_name, 'is_bot': is_bot}
-            write_csv(data)
-            print(f'Данные юзера с ID: {id} успешно записаны в файл CSV')
 
 
 if __name__ == '__main__':
     app = Client('account', api_id, api_hash)
-    get_user_info(app)
+    app.run(get_user_info(app))
     print('Запись всех данных успешно завершена!')
