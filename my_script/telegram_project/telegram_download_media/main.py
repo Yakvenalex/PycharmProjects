@@ -4,6 +4,11 @@ from config import *
 import requests
 import os
 
+def good_by():
+    print('Сохранение всех медиа из ТГ-канала "Авторская парфюмерия U Project Studio" завершено')
+    print('Все файлы сохранены в паке "downloads"')
+    print('Всего доброго!')
+
 def get_name(link):
     link = link.split('/')
     return link[-1]
@@ -24,8 +29,8 @@ def get_media(app):
                 pass
 
 def get_media_for_link_list(link_list):
-    os.chdir('downloads')
     print('Приступаю к сбору медиа по репостам')
+    os.chdir('downloads')
     for i in link_list:
         name = get_name(i)
         img = requests.get(i).content
@@ -35,11 +40,9 @@ def get_media_for_link_list(link_list):
         print(f'Медиа {name} сохранено!')
     
     os.chdir('..')
-    print('Сохранение всех медиа из ТГ-канала "Авторская парфюмерия U Project Studio" завершено')
-    print('Все файлы сохранены в паке "downloads"')
 
 if __name__ == '__main__':
     app = Client('account', api_id, api_hash)
     get_media(app)
     get_media_for_link_list(link_list)
-    print('Всего доброго!')
+    good_by()
