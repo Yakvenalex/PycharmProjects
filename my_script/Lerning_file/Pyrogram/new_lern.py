@@ -26,3 +26,7 @@ my_text = 'Как бы я хотел сделать: отправляется д
 #             else:
 #                 print(f'{message.text} - написал я')
 # app.run(main())
+
+# with app:
+#     for i in app.get_chat_photos(1242606918):
+#         app.send_photo('me', i.file_id)
