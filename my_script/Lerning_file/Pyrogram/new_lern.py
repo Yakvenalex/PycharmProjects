@@ -8,4 +8,4 @@ app = Client('account',
              api_hash)
 
 with app:
-    app.send_message('me', 'привет')
+    app.send_message(5332290640, 'тест')
