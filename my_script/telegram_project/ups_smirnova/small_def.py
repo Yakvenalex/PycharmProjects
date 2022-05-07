@@ -1,6 +1,7 @@
 import random
 
 hello = []
+phrase = []
 
 def say_hello(hello):
 
@@ -11,4 +12,11 @@ def say_hello(hello):
     random_index = random.randint(0, len(hello) - 1)
     return hello[random_index]
 
-print(say_hello(hello))
+def present(phrase):
+    with open('present..txt', newline='', encoding="utf-8") as file:
+        for i in file:
+            i = i.strip().split('|')
+            random_index = random.randint(0, len(i) - 1)
+            phrase.append(i[random_index])
+    my_phrase = ' '.join(phrase)
+    return my_phrase
