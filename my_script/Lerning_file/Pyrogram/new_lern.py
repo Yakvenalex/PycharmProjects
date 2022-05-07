@@ -7,8 +7,6 @@ import asyncio
 app = Client('account',
              api_id,
              api_hash)
-my_text = 'Как бы я хотел сделать: отправляется действие, потом как оно заканчивается, отправляется файл. Но получается так, что действие длится 5 секунд, а потом еще 5 секунд занимает отправка файла, и это время пользователь не понимает, это бот завис или файл еще отправляется. Как увеличить время действия до непосредственной отправки файла?'
-
 
 # async def main():
 #     async with app:
@@ -16,7 +14,7 @@ my_text = 'Как бы я хотел сделать: отправляется д
 #             await app.send_chat_action(5332290640, enums.ChatAction.TYPING)
 #             await asyncio.sleep(5)
 #         await asyncio.sleep(5)
-#         await app.send_message(5332290640, my_text)
+#         await app.send_message(5332290640, 'my_text')
 
 # async def main():
 #     async with app:
@@ -30,3 +28,5 @@ my_text = 'Как бы я хотел сделать: отправляется д
 # with app:
 #     for i in app.get_chat_photos(1242606918):
 #         app.send_photo('me', i.file_id)
+
+
