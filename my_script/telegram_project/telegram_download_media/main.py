@@ -8,7 +8,7 @@ def get_name(link):
     link = link.split('/')
     return link[-1]
 
-def get_media_stage_1(app):
+def get_media(app):
     with app:
         history = app.get_chat_history('uprojectstudio')
         count = app.get_chat_history_count('uprojectstudio')
@@ -23,9 +23,9 @@ def get_media_stage_1(app):
             except:
                 pass
 
-def get_media_stage_2(link_list):
+def get_media_for_link_list(link_list):
     os.chdir('downloads')
-    
+    print('Приступаю к сбору медиа по репостам')
     for i in link_list:
         name = get_name(i)
         img = requests.get(i).content
@@ -35,12 +35,11 @@ def get_media_stage_2(link_list):
         print(f'Медиа {name} сохранено!')
     
     os.chdir('..')
+    print('Сохранение всех медиа из ТГ-канала "Авторская парфюмерия U Project Studio" завершено')
+    print('Все файлы сохранены в паке "downloads"')
 
 if __name__ == '__main__':
     app = Client('account', api_id, api_hash)
-    get_media_stage_1(app)
-    print('Приступаю к сбору медиа по репостам')
-    get_media_stage_2(link_list)
-    print('Сохранение всех медиа из ТГ-канала "Авторская парфюмерия U Project Studio" завершено')
-    print('Все файлы сохранены в паке "downloads"')
+    get_media(app)
+    get_media_for_link_list(link_list)
     print('Всего доброго!')
