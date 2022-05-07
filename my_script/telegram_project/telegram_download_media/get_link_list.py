@@ -1,9 +1,8 @@
 from pyrogram import Client
-from config import api_id, api_hash
 
 print('Запущен подготовительный этап...')
 
-app = Client('account', api_id, api_hash)
+app = Client('account')
 link_list = []
 
 with app:
