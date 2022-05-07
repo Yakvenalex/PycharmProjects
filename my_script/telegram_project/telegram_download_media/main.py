@@ -4,11 +4,9 @@ from config import *
 import requests
 import os
 
-
 def get_name(link):
     link = link.split('/')
     return link[-1]
-
 
 def get_media_stage_1(app):
     with app:
@@ -25,7 +23,6 @@ def get_media_stage_1(app):
             except:
                 pass
 
-
 def get_media_stage_2(link_list):
     os.chdir('downloads')
     
@@ -38,7 +35,6 @@ def get_media_stage_2(link_list):
         print(f'Медиа {name} сохранено!')
     
     os.chdir('..')
-
 
 if __name__ == '__main__':
     app = Client('account', api_id, api_hash)
