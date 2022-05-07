@@ -18,5 +18,4 @@ async def main():
         await asyncio.sleep(5)
         await app.send_message(5332290640, my_text)
 
-
 app.run(main())
