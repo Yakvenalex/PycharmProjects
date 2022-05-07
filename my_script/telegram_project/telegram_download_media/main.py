@@ -1,6 +1,6 @@
+from get_link_list import link_list
 from pyrogram import Client
 from config import *
-from get_link_list import link_list
 import requests
 import os
 
@@ -14,6 +14,7 @@ def get_media_stage_1(app):
     with app:
         history = app.get_chat_history('uprojectstudio')
         count = app.get_chat_history_count('uprojectstudio')
+        
         print(f'Нашел в ТГ-канале: "Авторская парфюмерия U Project Studio" {count} сообщений')
         print('Приступаю к сохранению медиа на пк')
 
@@ -27,12 +28,15 @@ def get_media_stage_1(app):
 
 def get_media_stage_2(link_list):
     os.chdir('downloads')
+    
     for i in link_list:
         name = get_name(i)
         img = requests.get(i).content
+        
         with open(f'{name}', 'wb') as file:
             file.write(img)
         print(f'Медиа {name} сохранено!')
+    
     os.chdir('..')
 
 
