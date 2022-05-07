@@ -1,7 +1,3 @@
-from pyrogram import Client
-app = Client('account')
+import random
 
-@app.on_message()
-def echo(client, message):
-    print(message)
-app.run()
+print(random.randint(100, 300))
