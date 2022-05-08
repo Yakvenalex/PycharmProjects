@@ -2,6 +2,7 @@ import random
 
 hello = []
 phrase = []
+chan = []
 
 def say_hello(hello):
 
@@ -20,3 +21,12 @@ def present(phrase):
             phrase.append(i[random_index])
     my_phrase = ' '.join(phrase)
     return my_phrase
+
+def present_chanel(chan):
+    with open('chanel.txt', newline='', encoding="utf-8") as file:
+        for i in file:
+            i = i.strip().split('|')
+            random_index = random.randint(0, len(i) - 1)
+            chan.append(i[random_index])
+    my_chanel = ' '.join(chan)
+    return my_chanel
