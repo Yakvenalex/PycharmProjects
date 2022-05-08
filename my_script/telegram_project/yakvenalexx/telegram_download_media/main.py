@@ -38,7 +38,7 @@ def get_media_for_link_list(link_list):
             file.write(img)
         print(f'Медиа {name} сохранено!')
     
-    os.chdir('..')
+    os.chdir('../..')
 
 if __name__ == '__main__':
     app = Client('account')
