@@ -1,3 +1,4 @@
+from my_speac import *
 from pyrogram import Client, enums
 from config import *
 import time
@@ -12,30 +13,25 @@ async def get_user_info(client):
                 await client.send_chat_action(id, enums.ChatAction.TYPING)
                 await asyncio.sleep(2)
             time.sleep(1)
-            await client.send_message(id, 'Здравсвуйте!')
+            await client.send_message(id, say_hello(hello))
             time.sleep(2)
             for i in range(3):
                 await client.send_chat_action(id, enums.ChatAction.TYPING)
                 await asyncio.sleep(4)
             time.sleep(2)
-            await client.send_message(id, 'Меня зовут Юлия. Я парфюмерный менеджер компании U Project Studio. Сообщаю активным пользователям интернет о существовании нашего бренда😊')
+            await client.send_message(id, present(phrase))
             time.sleep(5)
             for i in range(3):
                 await client.send_chat_action(id, enums.ChatAction.TYPING)
                 await asyncio.sleep(3)
             time.sleep(2)
-            await client.send_message(id, 'Если интересна информация о нашей продукции, то задайте мне вопрос или посетите наш телеграмм канал @uprojectstudio')
+            await client.send_message(id, present_chanel(chan))
             time.sleep(6)
             for i in range(3):
                 await client.send_chat_action(id, enums.ChatAction.TYPING)
                 await asyncio.sleep(3)
             time.sleep(2)
-            await client.send_message(id, 'Также, информацию о нас вы найдете:\n⠀\n<b>Мы в ВК</b>: https://vk.com/u_project_studio\n⠀\n<b>Мы в Instagram</b>: https://www.instagram.com/uprojectstudio/')
-            for i in range(2):
-                await client.send_chat_action(id, enums.ChatAction.TYPING)
-                await asyncio.sleep(3)
-            time.sleep(2)
-            await client.send_message(id, 'Приношу извинения если побеспокоила 🙏 Всего дорого😘')
+            await client.send_message(id, poka_by(poka))
             time.sleep(random.randint(100, 300))
 
 if __name__ == '__main__':

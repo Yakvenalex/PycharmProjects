@@ -4,6 +4,7 @@ hello = []
 phrase = []
 chan = []
 poka = []
+
 def say_hello(hello):
 
     with open('txt_files_for_speak/hello_list.txt', 'r', newline='', encoding="utf-8") as file:
