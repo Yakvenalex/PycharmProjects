@@ -1,4 +1,5 @@
 from my_speac import *
+from get_logins import logins
 from pyrogram import Client, enums
 from config import *
 import time
@@ -7,8 +8,7 @@ import random
 
 async def get_user_info(client):
     async with client:
-        async for member in client.get_chat_members('chatkzn116'):
-            id = member.user.id
+        for id in logins:
             for i in range(2):
                 await client.send_chat_action(id, enums.ChatAction.TYPING)
                 await asyncio.sleep(2)

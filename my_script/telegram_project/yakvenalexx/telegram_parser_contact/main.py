@@ -2,17 +2,15 @@ from pyrogram import Client
 from config import *
 import csv
 
-
 def write_csv(data):
     with open('belittled_users.csv', 'a', newline='', encoding="utf-8") as f:
         order = ['id', 'login', 'first_name', 'last_name', 'is_bot']
         writer = csv.DictWriter(f, fieldnames=order)
         writer.writerow(data)
 
-
 def get_user_info(client):
     with client:
-        for member in client.get_chat_members(-1001415526465):
+        for member in client.get_chat_members('kazanchatik'):
             user = member.user
             id = user.id
             username = user.username
