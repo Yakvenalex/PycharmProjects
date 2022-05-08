@@ -6,7 +6,7 @@ chan = []
 poka = []
 def say_hello(hello):
 
-    with open('hello_list.txt', 'r', newline='', encoding="utf-8") as file:
+    with open('txt_files_for_speak/hello_list.txt', 'r', newline='', encoding="utf-8") as file:
         for i in file:
             hello.append(i.strip())
 
@@ -14,7 +14,7 @@ def say_hello(hello):
     return hello[random_index]
 
 def present(phrase):
-    with open('present..txt', newline='', encoding="utf-8") as file:
+    with open('txt_files_for_speak/present.txt', newline='', encoding="utf-8") as file:
         for i in file:
             i = i.strip().split('|')
             random_index = random.randint(0, len(i) - 1)
@@ -23,7 +23,7 @@ def present(phrase):
     return my_phrase
 
 def present_chanel(chan):
-    with open('chanel.txt', newline='', encoding="utf-8") as file:
+    with open('txt_files_for_speak/chanel.txt', newline='', encoding="utf-8") as file:
         for i in file:
             i = i.strip().split('|')
             random_index = random.randint(0, len(i) - 1)
@@ -32,7 +32,7 @@ def present_chanel(chan):
     return my_chanel
 
 def poka_by(poka):
-    with open('poka.txt', newline='', encoding="utf-8") as file:
+    with open('txt_files_for_speak/poka.txt', newline='', encoding="utf-8") as file:
         for i in file:
             i = i.strip().split('|')
             random_index = random.randint(0, len(i) - 1)
